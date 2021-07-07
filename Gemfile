@@ -5,11 +5,13 @@ ruby '2.7.2'
 
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'interactor', '~> 3.0'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rack-cors', '~> 1.1.1'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 gem 'redis', '~> 4.0'
+gem 'rest-client', '~> 2.1.0'
 
 group :development, :test do
   gem 'pry'
@@ -29,6 +31,8 @@ group :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
+  gem 'vcr'
+  gem 'webmock'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

@@ -3,7 +3,13 @@
 require 'rails_helper'
 
 describe 'listing recommended cars for users' do
-  before { get "/users/#{user_id}/cars" }
+  before do
+    allow(BravadoRecommendationExternalService)
+      .to receive(:get_recommended_cars) { [] }
+    create_list(:car, 10)
+
+    get "/users/#{user_id}/cars"
+  end
 
   context 'with a valid user_id' do
     let(:response_json) { JSON.parse(response.body, symbolize_names: true) }
