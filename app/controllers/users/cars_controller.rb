@@ -4,7 +4,14 @@ class Users::CarsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
   def index
-    render json: Users::ListRecommendedCars.call(user: user)
+    results = Users::ListRecommendedCars.call(
+      user: user,
+      brand_name: params[:query],
+      price_min: params[:price_min],
+      price_max: params[:price_max]
+    ).recommended_cars
+
+    render json: results, each_serializer: CarSerializer
   end
 
   private
