@@ -1,3 +1,7 @@
+# Kanban Board
+
+https://trello.com/b/NV7GfLxl/bravado-assessment
+
 # Introduction
 
 We want to build a car market platform and provide a personalized selection of cars to our users. There are few main models:
