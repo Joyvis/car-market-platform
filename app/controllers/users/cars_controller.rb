@@ -8,7 +8,8 @@ class Users::CarsController < ApplicationController
       user: user,
       brand_name: params[:query],
       price_min: params[:price_min],
-      price_max: params[:price_max]
+      price_max: params[:price_max],
+      page: params[:page]
     ).recommended_cars
 
     render json: results, each_serializer: CarSerializer
