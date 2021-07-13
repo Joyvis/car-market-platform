@@ -10,7 +10,7 @@ describe BravadoRecommendationExternalService, vcr: true do
 
     context 'when a cached response exists' do
       before do
-        Redis.current.set("recommended_cars_#{user_id}", [{foo: :bar}].to_json)
+        Redis.current.set("recommended_cars_#{user_id}", [{ foo: :bar }].to_json)
       end
 
       it 'returns the cached response' do

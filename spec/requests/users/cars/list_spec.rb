@@ -39,7 +39,7 @@ describe 'listing recommended cars for users' do
   end
 
   context 'with a invalid user_id' do
-    let(:user_id) { 212121 }
+    let(:user_id) { 212_121 }
 
     it 'returns a http status :not_found' do
       expect(response).to have_http_status(:not_found)

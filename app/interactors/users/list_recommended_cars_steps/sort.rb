@@ -36,7 +36,7 @@ module Users
 
       def other_cars
         (cars - context.recommended_cars)
-          .sort_by { |car| car.price }
+          .sort_by(&:price)
           .reverse
       end
 
