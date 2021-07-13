@@ -18,11 +18,12 @@ class BravadoRecommendationExternalService
       redis = Redis.current
       recommended_cars = redis.get("recommended_cars_#{user_id}")
 
-      if valid_json?(recommended_cars) && recommended_cars.present? && !update_redis
+      if valid_json?(recommended_cars) &&
+          recommended_cars.present? && !update_redis
         return recommended_cars
       end
 
-     recommended_cars_from_api(user_id, redis)
+      recommended_cars_from_api(user_id, redis)
     end
 
     def recommended_cars_from_api(user_id, redis)
@@ -31,14 +32,14 @@ class BravadoRecommendationExternalService
       redis.set("recommended_cars_#{user_id}", recommended_cars)
 
       recommended_cars
-    rescue
+    rescue StandardError
       [{}].to_json
     end
 
     def valid_json?(json)
       JSON.parse(json)
       true
-    rescue
+    rescue StandardError
       false
     end
   end
