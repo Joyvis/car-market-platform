@@ -107,6 +107,18 @@ GEM
     interactor (3.1.2)
     json (2.5.1)
     jsonapi-renderer (0.2.2)
+    kaminari (1.2.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.1)
+      kaminari-activerecord (= 1.2.1)
+      kaminari-core (= 1.2.1)
+    kaminari-actionview (1.2.1)
+      actionview
+      kaminari-core (= 1.2.1)
+    kaminari-activerecord (1.2.1)
+      activerecord
+      kaminari-core (= 1.2.1)
+    kaminari-core (1.2.1)
     listen (3.5.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -287,6 +299,7 @@ DEPENDENCIES
   dotenv-rails (~> 2.7.6)
   factory_bot_rails
   interactor (~> 3.0)
+  kaminari (~> 1.2.0)
   listen (~> 3.3)
   pg (~> 1.1)
   pry

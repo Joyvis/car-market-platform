@@ -5,10 +5,10 @@ module Users
     class Filter
       include Interactor
 
-      delegate :brand_name, :price_min, :price_max, to: :context
+      delegate :brand_name, :price_min, :price_max, :page, to: :context
 
       def call
-        context.cars = Car.includes(:brand)
+        context.cars = Car.includes(:brand).page(page || 1).per(20)
         context.cars = filter_by_brand(context.cars)
         context.cars = filter_by_price(context.cars)
       end
