@@ -28,7 +28,7 @@ module Users
 
       def cars_with_rank_score
         @cars_with_rank_score ||= ::BravadoRecommendationExternalService
-          .get_recommended_cars(user_id: user.id)
+                                  .get_recommended_cars(user_id: user.id)
       end
     end
   end

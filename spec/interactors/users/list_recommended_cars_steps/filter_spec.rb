@@ -4,7 +4,7 @@ require 'rails_helper'
 
 describe Users::ListRecommendedCarsSteps::Filter do
   let(:brand) { create(:brand, name: 'Test Brand') }
-  let(:price) { 999999999 }
+  let(:price) { 999_999_999 }
 
   before do
     create(:car, model: 'Test Card', price: price, brand: brand)
@@ -54,7 +54,7 @@ describe Users::ListRecommendedCarsSteps::Filter do
     subject { described_class.call(price_min: price_min, price_max: price_max) }
 
     context 'when only price_min is present' do
-      let(:price_min) { 999999998 }
+      let(:price_min) { 999_999_998 }
       let(:price_max) { nil }
 
       it 'returns cars filtered by min price' do
@@ -65,7 +65,7 @@ describe Users::ListRecommendedCarsSteps::Filter do
 
     context 'when only price_max is present' do
       let(:price_min) { nil }
-      let(:price_max) { 999999999 }
+      let(:price_max) { 999_999_999 }
 
       it 'returns cars filtered by min price' do
         expect(subject.cars.count).to eq(Car.all.count)
@@ -73,8 +73,8 @@ describe Users::ListRecommendedCarsSteps::Filter do
     end
 
     context 'when both price params are present' do
-      let(:price_min) { 999999998 }
-      let(:price_max) { 999999999 }
+      let(:price_min) { 999_999_998 }
+      let(:price_max) { 999_999_999 }
 
       it 'returns cars filtered by min price' do
         expect(subject.cars.count).to eq(1)
